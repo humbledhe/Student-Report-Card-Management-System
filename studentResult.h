@@ -7,39 +7,35 @@
 class StudentManager
 {
 private:
-    std::vector<Students> students;
-    int adminPassword;
+    std::vector<Students> Students;
+    int AdminPassword;
 
 public:
-    StudentManager()
-    {
-        this->adminPassword = 1234;
-    }
+    StudentManager() : AdminPassword(1234) {}
     int getAdminPassword()
     {
-        return this->adminPassword;
+        return AdminPassword;
     }
     void addStudent(std::string studentName, float studentGpa)
     {
-        students.push_back({studentName, studentGpa});
+        Students.emplace_back(studentName, studentGpa);
     }
     void viewStudents()
     {
-        for (const auto &s : students)
-            std::cout << "Name: " << s.studentName << std::endl
-                      << "Gpa: " << s.gpa << std::endl
-                      << std::endl;
+        for (const auto &student : Students)
+            std::cout << "Name: " << student.StudentName << std::endl
+                      << "Gpa: " << student.Gpa << std::endl;
     }
     void deleteStudents(std::string studentName)
     {
-        for (auto it = students.begin(); it != students.end(); it++)
+        for (auto it = Students.begin(); it != Students.end(); it++)
         {
-            if (it->studentName == studentName) // Students gpa will also be deleted
-                it = students.erase(it);
+            if (it->StudentName == studentName) // Students gpa will also be deleted
+                it = Students.erase(it);
         }
     }
     int getNumberOfStudents()
     {
-        return students.size();
+        return Students.size();
     }
 };

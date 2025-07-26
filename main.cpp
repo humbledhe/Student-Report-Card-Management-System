@@ -32,7 +32,8 @@ int main()
                           << "Press 1 to add student report\n"
                           << "Press 2 to delete student report\n"
                           << "Press 3 to view student report\n"
-                          << "Press 4 to exit\n\n";
+                          << "Press 4 to view number of students\n"
+                          << "Press 5 to exit\n\n";
 
                 std::cout << "> ";
                 std::cin >> options;
@@ -70,11 +71,17 @@ int main()
                     system("cls");
 
                     student.viewStudents();
-                    std::cout << std::endl
+                    std::cout << std::endl;
+                    break;
+                case 4:
+                    system("cls");
+
+                    std::cout << "Number of students: " << student.getNumberOfStudents() << std::endl
                               << std::endl;
                     break;
                 }
-            } while (options != 4);
+            } while (options != 5);
+            system("cls");
         }
 
     } while (true);
